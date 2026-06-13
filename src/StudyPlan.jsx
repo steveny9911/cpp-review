@@ -1812,16 +1812,33 @@ export default function StudyPlan() {
         });
     }, [triviaList]);
 
+    const [shuffleFlashcards, setShuffleFlashcards] = useState(false);
+
+    const displayedFlashcards = useMemo(() => {
+        if (!shuffleFlashcards) return flashcardQuestions;
+        const arr = [...flashcardQuestions];
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }, [flashcardQuestions, shuffleFlashcards]);
+
     const advanceFlashcard = (delta) => {
-        if (!flashcardQuestions.length) return;
+        if (!displayedFlashcards.length) return;
         setFlashcardIndex((prev) => {
-            const next = (prev + delta + flashcardQuestions.length) % flashcardQuestions.length;
+            const next = (prev + delta + displayedFlashcards.length) % displayedFlashcards.length;
             return next;
         });
         setFlashcardReveal(false);
     };
 
-    const currentFlashcard = flashcardQuestions[flashcardIndex] || null;
+    const currentFlashcard = displayedFlashcards[flashcardIndex] || null;
+
+    useEffect(() => {
+        // reset index when the displayed set changes (shuffle toggled or list changes)
+        setFlashcardIndex(0);
+    }, [displayedFlashcards]);
 
     const card = (extra = {}) => ({
         background: "#161b22",
@@ -2633,6 +2650,11 @@ export default function StudyPlan() {
                                                             color: "#7d8590",
                                                             fontSize: "16px",
                                                             flexShrink: 0,
+                                                            transform:
+                                                                expandedPattern === eKey
+                                                                    ? "rotate(90deg)"
+                                                                    : "none",
+                                                            transition: "transform 0.2s",
                                                         }}
                                                     >
                                                         ›
@@ -3046,6 +3068,22 @@ export default function StudyPlan() {
                                                     Previous
                                                 </button>
                                                 <button
+                                                    onClick={() => setShuffleFlashcards((s) => !s)}
+                                                    title="Toggle shuffle"
+                                                    style={{
+                                                        padding: "6px 12px",
+                                                        borderRadius: "8px",
+                                                        border: "1px solid #30363d",
+                                                        background: shuffleFlashcards ? "#2dd4bf" : "transparent",
+                                                        color: shuffleFlashcards ? "#0d1117" : "#8b949e",
+                                                        fontSize: "11px",
+                                                        cursor: "pointer",
+                                                        fontFamily: "inherit",
+                                                    }}
+                                                >
+                                                    {shuffleFlashcards ? "Shuffle On" : "Shuffle Off"}
+                                                </button>
+                                                <button
                                                     onClick={() => advanceFlashcard(1)}
                                                     style={{
                                                         padding: "6px 12px",
@@ -3112,7 +3150,7 @@ export default function StudyPlan() {
                                                     fontFamily: "inherit",
                                                 }}
                                             >
-                                                {flashcardReveal ? "Hide answer" : "Reveal answer"}
+                                                {flashcardReveal ? "Hide answer ▲" : "Reveal answer ▼"}
                                             </button>
                                             <button
                                                 onClick={() => {
