@@ -383,7 +383,8 @@ function Checkbox({ checked, onChange, accent = "#7ec98a" }) {
                         color: accent,
                         fontSize: "11px",
                         lineHeight: 1,
-                        fontWeight: 700,
+                            fontWeight: 700,
+                            fontFamily: "'IBM Plex Mono','Fira Code',monospace",
                     }}
                 >
                     ✓
@@ -1920,6 +1921,7 @@ export default function StudyPlan() {
                                                     ? "#7ec98a"
                                                     : "#e07b39",
                                             fontWeight: 600,
+                                            fontFamily: "'IBM Plex Mono','Fira Code',monospace",
                                         }}
                                     >
                                         {done}/{total}
@@ -2126,6 +2128,7 @@ export default function StudyPlan() {
                                                     style={{
                                                         fontSize: "13px",
                                                         fontWeight: 700,
+                                                        fontFamily: "'IBM Plex Mono','Fira Code',monospace",
                                                         color: w.color,
                                                     }}
                                                 >
@@ -2259,6 +2262,7 @@ export default function StudyPlan() {
                                             style={{
                                                 fontSize: "13px",
                                                 fontWeight: 600,
+                                                fontFamily: "'IBM Plex Mono','Fira Code',monospace",
                                                 color: "#e6edf3",
                                                 marginBottom: "3px",
                                             }}
@@ -2412,6 +2416,7 @@ export default function StudyPlan() {
                                                             textDecoration: done
                                                                 ? "line-through"
                                                                 : "none",
+                                                            fontFamily: "'IBM Plex Mono','Fira Code',monospace",
                                                         }}
                                                     >
                                                         {topic.title}
@@ -2511,6 +2516,7 @@ export default function StudyPlan() {
                                         style={{
                                             fontSize: "12px",
                                             fontWeight: 700,
+                                            fontFamily: "'IBM Plex Mono','Fira Code',monospace",
                                             color: cat.color,
                                             textTransform: "uppercase",
                                             letterSpacing: "0.1em",
@@ -2602,6 +2608,8 @@ export default function StudyPlan() {
                                                                     done
                                                                         ? "line-through"
                                                                         : "none",
+                                                                fontFamily:
+                                                                    "'IBM Plex Mono','Fira Code',monospace",
                                                             }}
                                                         >
                                                             {p.name}
@@ -2613,6 +2621,8 @@ export default function StudyPlan() {
                                                                 color: "#7d8590",
                                                                 marginTop:
                                                                     "3px",
+                                                                fontFamily:
+                                                                    "'IBM Plex Mono','Fira Code',monospace",
                                                             }}
                                                         >
                                                             Use when: {p.when}
@@ -2715,6 +2725,8 @@ export default function StudyPlan() {
                                                         textDecoration: done
                                                             ? "line-through"
                                                             : "none",
+                                                        fontFamily:
+                                                            "'IBM Plex Mono','Fira Code',monospace",
                                                     }}
                                                 >
                                                     {p.name}
@@ -2842,6 +2854,7 @@ export default function StudyPlan() {
                                 style={{
                                     fontSize: "13px",
                                     fontWeight: 700,
+                                    fontFamily: "'IBM Plex Mono','Fira Code',monospace",
                                     color: "#ef4444",
                                     marginBottom: "6px",
                                 }}
@@ -2885,6 +2898,7 @@ export default function StudyPlan() {
                                 style={{
                                     fontSize: "12px",
                                     fontWeight: 700,
+                                    fontFamily: "'IBM Plex Mono','Fira Code',monospace",
                                     color: "#5b9cf6",
                                     marginBottom: "8px",
                                 }}
@@ -2994,6 +3008,7 @@ export default function StudyPlan() {
                                                         textTransform: "uppercase",
                                                         color: currentFlashcard.cat.color,
                                                         fontWeight: 700,
+                                                        fontFamily: "'IBM Plex Mono','Fira Code',monospace",
                                                         marginBottom: "4px",
                                                     }}
                                                 >
