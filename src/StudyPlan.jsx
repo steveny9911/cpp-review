@@ -284,7 +284,7 @@ function CodeBlock({ code, borderColor }) {
                 margin: 0,
                 fontSize: "11px",
                 lineHeight: 1.8,
-                fontFamily: "inherit",
+                fontFamily: "'IBM Plex Mono','Fira Code',monospace",
                 overflowX: "auto",
                 whiteSpace: "pre-wrap",
                 wordBreak: "break-word",
@@ -1866,7 +1866,7 @@ export default function StudyPlan() {
                         fontSize: "clamp(20px,4vw,28px)",
                         fontWeight: 700,
                         letterSpacing: "-0.02em",
-                        fontFamily: "'IBM Plex Sans',system-ui,sans-serif",
+                        fontFamily: "'IBM Plex Mono','Fira Code',monospace",
                     }}
                 >
                     <span style={{ color: "#e07b39" }}>C++</span>{" "}
