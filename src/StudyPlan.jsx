@@ -2448,6 +2448,8 @@ export default function StudyPlan() {
                                                             padding: "2px 7px",
                                                             borderRadius:
                                                                 "10px",
+                                                            fontFamily:
+                                                                "'IBM Plex Mono','Fira Code',monospace",
                                                         }}
                                                     >
                                                         {topic.tag}
@@ -2482,8 +2484,9 @@ export default function StudyPlan() {
                                                     style={{
                                                         fontSize: "12px",
                                                         color: "#8b949e",
-                                                        lineHeight: 1.7,
-                                                        marginBottom: "12px",
+                                                        background: "#21262d",
+                                                        padding: "2px 8px",
+                                                        fontFamily: "'IBM Plex Mono','Fira Code',monospace",
                                                     }}
                                                 >
                                                     {topic.summary}
@@ -2773,6 +2776,7 @@ export default function StudyPlan() {
                                                                 "Medium"
                                                               ? "#5b9cf6"
                                                               : "#e07b39",
+                                                       fontFamily: "'IBM Plex Mono','Fira Code',monospace",
                                                 }}
                                             >
                                                 {p.difficulty}
@@ -3410,10 +3414,12 @@ export default function StudyPlan() {
                                                                     background:
                                                                         cat.color +
                                                                         "20",
-                                                                    padding:
-                                                                        "2px 7px",
+                                                                        padding:
+                                                                            "2px 7px",
                                                                     borderRadius:
                                                                         "10px",
+                                                                        fontFamily:
+                                                                            "'IBM Plex Mono','Fira Code',monospace",
                                                                 }}
                                                             >
                                                                 {q.tag}
